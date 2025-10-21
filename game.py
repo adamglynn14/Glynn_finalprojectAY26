@@ -1,6 +1,6 @@
 # Example file showing a basic pygame "game loop"
 import pygame
-from util_bg import background
+from util_bg import make_background
 from util_param import *
 
 # pygame setup
@@ -11,8 +11,9 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 clock = pygame.time.Clock()
 running = True
 
-################# TESTING ZONE ###################################
+background = make_background()
 
+################# TESTING ZONE ###################################
 
 
 #blit the background to our screen

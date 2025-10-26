@@ -16,11 +16,14 @@ background = make_background()
 ################# TESTING ZONE ###################################
 
 
-#blit the background to our screen
-screen.blit(background,(0,0))
+
 
 
 ################################################################
+
+#blit the background to our screen
+screen.blit(background,(0,0))
+
 
 while running:
     # poll for events

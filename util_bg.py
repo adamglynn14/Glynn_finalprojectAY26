@@ -11,11 +11,11 @@ def make_background():
 
     sand_square_tile_location = "Assets_and_images/PNG/Retina/Tiles/sand_square_tile.png"
     sand_square_tile = pygame.image.load(sand_square_tile_location)
-    scaled_sand_square_tile = pygame.transform.rotozoom(sand_square_tile, 0, 0.7)
+    scaled_sand_square_tile = pygame.transform.rotozoom(sand_square_tile, 0, 0.2)
 
     #get the tile width, height
-    sand_square_tile_width = water_tile.get_width()
-    sand_square_tile_height = water_tile.get_height()
+    sand_square_tile_width = scaled_sand_square_tile.get_width()
+    sand_square_tile_height = scaled_sand_square_tile.get_height()
 
     #make a new surface, background, with the same w,h as screen
     background = pygame.Surface((WIDTH, HEIGHT))
@@ -25,9 +25,12 @@ def make_background():
         for y in range(0,HEIGHT, water_tile_height):
             background.blit(water_tile, (x,y))
 
-    x = (WIDTH - sand_square_tile_width)
-    y = (HEIGHT - sand_square_tile_height)
-    background.blit(scaled_sand_square_tile, (x,y))
+
+    y = (0, HEIGHT, sand_square_tile_height)
+    for x in range(0,WIDTH,sand_square_tile_width):
+        background.blit(scaled_sand_square_tile, (x,y))
 
     #return background
     return background
+
+

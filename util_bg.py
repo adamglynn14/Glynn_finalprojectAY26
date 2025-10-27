@@ -25,12 +25,17 @@ def make_background():
         for y in range(0,HEIGHT, water_tile_height):
             background.blit(water_tile, (x,y))
 
-
     #place sand on the bottom row
-    y_sand = HEIGHT - sand_square_tile_height
+    y_sands = HEIGHT - sand_square_tile_height
     for x in range(0,WIDTH,sand_square_tile_width):
         #blit the sand tile
-        background.blit(scaled_sand_square_tile,(x,y_sand))
+        background.blit(scaled_sand_square_tile,(x,y_sands))
+
+    #place sand on the top row
+    for x in range(0,WIDTH,sand_square_tile_width):
+        #blit the sand tile
+        background.blit(scaled_sand_square_tile,(x,0))
+
     #place sand in the edge row
     x_sand = WIDTH - sand_square_tile_width
     for y in range(0, HEIGHT, sand_square_tile_height):
@@ -63,7 +68,7 @@ def make_background():
     SGurc_tile_height = SGurc_tile.get_height()
 
     #place tile on screen
-    x_urc = 500 + SGulc_tile_width * 0.4
+    x_urc = 500 + SGurc_tile_width * 0.4
     y_urc = 100 
 
     #make the tile smaller:
@@ -107,7 +112,23 @@ def make_background():
     #blit the sand background
     background.blit(scaled_SGllc_tile, (x_llc, y_llc))
 
+    #make a channel 
+    wavysand_location = "Assets_and_images/PNG/Retina/Tiles/wavysand.png"
+    wavysand = pygame.image.load(wavysand_location)
+    scaled_wavysand = pygame.transform.rotozoom(wavysand, 0, 0.2)
 
+    ywavy = HEIGHT - 100
+    for x in range(150,WIDTH - 200,sand_square_tile_width):
+        #blit the sand tile
+        background.blit(scaled_wavysand,(x,ywavy))
+    
+    #toppart of channel
+    scaled2_wavysand = pygame.transform.rotozoom(wavysand, 180, 0.2)
+
+    ywavy = HEIGHT - 150
+    for x in range(150,WIDTH - 200,sand_square_tile_width):
+        #blit the sand tile
+        background.blit(scaled2_wavysand,(x,ywavy))
 
 
     #return background

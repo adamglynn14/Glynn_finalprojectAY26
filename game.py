@@ -18,7 +18,6 @@ background = make_background()
 
 
 
-
 ################################################################
 
 #blit the background to our screen

@@ -2,15 +2,15 @@ import pygame
 from util_param import *
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self, x=WIDTH*0.1, y=HEIGHT/2):
+    def __init__(self, x = WIDTH, y= HEIGHT):
         pygame.sprite.Sprite.__init__(self) # init the sprite class
         self.x = x
         self.y = y
-        self.vx = 0
-        self.vy = 0
+        self.vx = 5
+        self.vy = 5
         self.image = pygame.image.load('Assets_and_images/PNG/Retina/Ships/bluehorseship.png')
         # do any resize here
-        self.image = pygame.transform.rotozoom(self.image, 0, 1.2)
+        self.image = pygame.transform.rotozoom(self.image, 0, 0.4)
         self.rect = self.image.get_rect()
         self.score = 0
 

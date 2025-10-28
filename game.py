@@ -2,6 +2,7 @@
 import pygame
 from util_bg import make_background
 from util_param import *
+from player import Player
 
 # pygame setup
 pygame.init()
@@ -18,6 +19,9 @@ background = make_background()
 
 
 
+#make a player 
+player = Player(pygame.sprite.Group())
+
 ################################################################
 
 #blit the background to our screen
@@ -31,6 +35,14 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
+    #update the things
+    
+
+    #blit the background to our screen
+    screen.blit(background,(0,0))
+
+    # draw player
+    player.draw(screen)
 
     # RENDER YOUR GAME HERE
 

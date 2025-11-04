@@ -20,7 +20,7 @@ background = make_background()
 
 
 #make a player 
-player = Player(pygame.sprite.Group())
+player = Player()
 
 ################################################################
 
@@ -34,6 +34,8 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+        #get the mouse position
+        player.check_mouse()
 
     #update the things
     player.update()

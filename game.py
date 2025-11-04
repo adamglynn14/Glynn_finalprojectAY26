@@ -36,7 +36,7 @@ while running:
             running = False
 
     #update the things
-    
+    player.update()
 
     #blit the background to our screen
     screen.blit(background,(0,0))

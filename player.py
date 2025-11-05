@@ -1,6 +1,7 @@
 import pygame
 from util_param import *
 import math
+from wind import wind_dir
 
 class Player(pygame.sprite.Sprite):
     def __init__(self, x = 100, y= HEIGHT//2):
@@ -20,7 +21,7 @@ class Player(pygame.sprite.Sprite):
         self.y += self.vy
         # update the rect
         self.rect.center = (self.x, self.y)
-        if self.x <= WIDTH:
+        if deg <= WIDTH:
             self.vx = 1
         #if self.y <= HEIGHT:
             #self.vy += 0.007

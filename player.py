@@ -20,7 +20,11 @@ class Player(pygame.sprite.Sprite):
         self.y += self.vy
         # update the rect
         self.rect.center = (self.x, self.y)
-        
+        if self.x <= WIDTH:
+            self.vx = 1
+        #if self.y <= HEIGHT:
+            #self.vy += 0.007
+
     def draw(self, screen):
         # blit our ship to the screen
         screen.blit(self.image, self.rect)

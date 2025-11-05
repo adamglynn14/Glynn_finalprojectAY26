@@ -20,21 +20,7 @@ class Player(pygame.sprite.Sprite):
         self.y += self.vy
         # update the rect
         self.rect.center = (self.x, self.y)
-
-
-    def check_mouse(self,):
-        #gets the mouse positon and makes player follow
-        self.mouse_x, self.mouse_y = pygame.mouse.get_pos()
-        self.rel_x, self.rel_y = self.mouse_x - self.x, self.mouse_y - self.y
-        angle_radians = math.atan2(self.rel_y, self.rel_x)
-        angle_degrees = math.degrees(angle_radians)
-        rotated_image =  pygame.transform.rotate(self.image, -angle_degrees) 
-        new_rect = rotated_image.get_rect(center=self.rect.center)
-        self.image = rotated_image
-        self.rect = new_rect
-
-
-
+        
     def draw(self, screen):
         # blit our ship to the screen
         screen.blit(self.image, self.rect)

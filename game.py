@@ -34,8 +34,7 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-        #get the mouse position
-        player.check_mouse()
+    
 
     #update the things
     player.update()

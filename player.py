@@ -22,11 +22,6 @@ class Player(pygame.sprite.Sprite):
         # update the rect
         self.rect.center = (self.x, self.y)
 
-        #have constant velo kinda like wind
-        #if self.x <= WIDTH:
-            #self.vx = 0
-        #if self.y <= HEIGHT:
-            #self.vy = 0
 
     def check_event(self, event):
         # pass an event and check for key moves
@@ -49,19 +44,11 @@ class Player(pygame.sprite.Sprite):
                 self.vx += 1
             if event.key == pygame.K_t:
                 # player goes forward
-                self.vx *= 0
+                self.vx *= 0.3
             if event.key == pygame.K_t:
                 # player goes forward
-                self.vy *= 0
-        #if event.type == pygame.KEYUP: 
-            #if event.key == pygame.K_a:
-                #self.vx *= 0
-            #if event.key == pygame.K_d:
-                #self.vx *= 0
-            #if event.key == pygame.K_w:
-                #self.vy *= 0
-            #if event.key == pygame.K_s:
-                #self.vy *= 0
+                self.vy *= 0.3
+
 
     def draw(self, screen):
         # blit our ship to the screen

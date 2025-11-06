@@ -3,6 +3,7 @@ import pygame
 from util_bg import make_background
 from util_param import *
 from player import Player
+from Potential_h import Pot_Text
 
 # pygame setup
 pygame.init()
@@ -14,13 +15,16 @@ running = True
 
 background = make_background()
 
+#make a player 
+player = Player()
+
+title = Pot_Text()
+
 ################# TESTING ZONE ###################################
 
 
 
 
-#make a player 
-player = Player()
 
 ################################################################
 
@@ -40,6 +44,12 @@ while running:
     #update the things
     player.update()
 
+
+    #draw the title 
+    title.update()
+    title.draw(screen)
+
+    
     #blit the background to our screen
     screen.blit(background,(0,0))
 

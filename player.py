@@ -24,9 +24,9 @@ class Player(pygame.sprite.Sprite):
 
         #have constant velo kinda like wind
         #if self.x <= WIDTH:
-         #   self.vx = 0.5
+            #self.vx = 0
         #if self.y <= HEIGHT:
-        #    self.vy = 0.25
+            #self.vy = 0
 
     def check_event(self, event):
         # pass an event and check for key moves
@@ -47,7 +47,21 @@ class Player(pygame.sprite.Sprite):
             if event.key == pygame.K_d:
                 # player goes forward
                 self.vx += 1
-
+            if event.key == pygame.K_t:
+                # player goes forward
+                self.vx *= 0
+            if event.key == pygame.K_t:
+                # player goes forward
+                self.vy *= 0
+        #if event.type == pygame.KEYUP: 
+            #if event.key == pygame.K_a:
+                #self.vx *= 0
+            #if event.key == pygame.K_d:
+                #self.vx *= 0
+            #if event.key == pygame.K_w:
+                #self.vy *= 0
+            #if event.key == pygame.K_s:
+                #self.vy *= 0
 
     def draw(self, screen):
         # blit our ship to the screen

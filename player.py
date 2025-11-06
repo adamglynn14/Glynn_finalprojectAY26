@@ -21,10 +21,15 @@ class Player(pygame.sprite.Sprite):
         self.y += self.vy
         # update the rect
         self.rect.center = (self.x, self.y)
-        if deg <= WIDTH:
+
+        #make a wind vector
+        if wind_dir() <= 90:
             self.vx = 1
-        #if self.y <= HEIGHT:
-            #self.vy += 0.007
+            self.vy =1
+        else:
+            self.vx = -1
+            self.vy = -1
+
 
     def draw(self, screen):
         # blit our ship to the screen

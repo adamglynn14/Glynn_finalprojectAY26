@@ -34,7 +34,8 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-    
+        # pass the event to our player
+        player.check_event(event)
 
     #update the things
     player.update()

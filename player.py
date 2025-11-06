@@ -1,7 +1,7 @@
 import pygame
 from util_param import *
 import math
-from wind import wind_dir
+import random
 
 class Player(pygame.sprite.Sprite):
     def __init__(self, x = 100, y= HEIGHT//2):
@@ -22,13 +22,31 @@ class Player(pygame.sprite.Sprite):
         # update the rect
         self.rect.center = (self.x, self.y)
 
-        #make a wind vector
-        if wind_dir() <= 90:
-            self.vx = 1
-            self.vy =1
-        else:
-            self.vx = -1
-            self.vy = -1
+        #have constant velo kinda like wind
+        #if self.x <= WIDTH:
+         #   self.vx = 0.5
+        #if self.y <= HEIGHT:
+        #    self.vy = 0.25
+
+    def check_event(self, event):
+        # pass an event and check for key moves
+        if event.type == pygame.KEYDOWN:
+            # we got a keydown event
+            # check and see if it was W key
+            if event.key == pygame.K_w:
+                self.vy += -1
+                # player goes up
+            # check and see if it was a S key
+            if event.key == pygame.K_s:
+                # player goes down
+                self.vy  += 1
+            # move left and right
+            if event.key == pygame.K_a:
+                # player goes back
+                self.vx += -1
+            if event.key == pygame.K_d:
+                # player goes forward
+                self.vx += 1
 
 
     def draw(self, screen):

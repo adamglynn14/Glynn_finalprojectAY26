@@ -10,17 +10,26 @@ class Player(pygame.sprite.Sprite):
         self.y = y
         self.vx = 0
         self.vy = 0
-        self.image = pygame.image.load('Assets_and_images/PNG/Retina/Ships/bluehorseship.png')
+        self.base1_image = pygame.image.load('Assets_and_images/PNG/Retina/Ships/bluehorseship.png')
         # do any resize here
-        self.image = pygame.transform.rotozoom(self.image, 0, 0.4) 
-        self.rect = self.image.get_rect()
-        
+        self.base_image = pygame.transform.rotozoom(self.base1_image, 0, 0.4) 
+        self.rect = self.base_image.get_rect()
+        self.theta=0 # rad
+
+    def get_theta(self):
+        # get our theta based on our vx and vy
+        self.theta = math.atan2(-self.vy,self.vx)
+
     def update(self):
         #initial position vector
         self.x += self.vx
         self.y += self.vy
         # update the rect
         self.rect.center = (self.x, self.y)
+
+        #update the theta value
+        self.get_theta()
+    
 
 
     def check_event(self, event):
@@ -51,5 +60,12 @@ class Player(pygame.sprite.Sprite):
 
 
     def draw(self, screen):
+        if self.theta>math.pi/2 or self.theta <-math.pi/2:
+            self.image = pygame.transform.flip(self.base_image,0,1)
+        else:
+            self.image = self.base_image
+
         # blit our ship to the screen
+        self.image = pygame.transform.rotozoom(self.image, math.degrees(self.theta),1)
+        self.rect = self.image.get_rect(center=self.rect.center)
         screen.blit(self.image, self.rect)

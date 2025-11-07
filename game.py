@@ -18,6 +18,7 @@ background = make_background()
 #make a player 
 player = Player()
 
+#make the title
 title = Pot_Text()
 
 ################# TESTING ZONE ###################################
@@ -27,9 +28,6 @@ title = Pot_Text()
 
 
 ################################################################
-
-#blit the background to our screen
-screen.blit(background,(0,0))
 
 
 while running:
@@ -45,19 +43,20 @@ while running:
     player.update()
 
 
+    #blit the background to our screen
+    screen.blit(background,(0,0))
+
+
     #draw the title 
     title.update()
     title.draw(screen)
 
-    
-    #blit the background to our screen
-    screen.blit(background,(0,0))
-
+    # RENDER YOUR GAME HERE
     # draw player
     player.draw(screen)
 
-    # RENDER YOUR GAME HERE
 
+    
     # flip() the display to put your work on screen
     pygame.display.flip()
 

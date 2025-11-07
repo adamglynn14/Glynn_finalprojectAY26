@@ -4,7 +4,7 @@ import math
 import random
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self, x = 100, y= HEIGHT//2):
+    def __init__(self, x = 50, y= HEIGHT//5):
         pygame.sprite.Sprite.__init__(self) # init the sprite class
         self.x = x
         self.y = y

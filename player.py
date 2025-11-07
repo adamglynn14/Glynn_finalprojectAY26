@@ -18,7 +18,7 @@ class Player(pygame.sprite.Sprite):
 
     def get_theta(self):
         # get our theta based on our vx and vy
-        self.theta = math.atan2(-self.vy,self.vx)
+        self.theta = math.atan2(self.vx,self.vy)
 
     def update(self):
         #initial position vector
@@ -60,7 +60,7 @@ class Player(pygame.sprite.Sprite):
 
 
     def draw(self, screen):
-        if self.theta>math.pi/2 or self.theta <-math.pi/2:
+        if self.theta>math.pi or self.theta <-math.pi:
             self.image = pygame.transform.flip(self.base_image,0,1)
         else:
             self.image = self.base_image

@@ -13,10 +13,10 @@ class Enemyship(pygame.sprite.Sprite):
         self.y = randint(0,HEIGHT)
         self.image = pygame.image.load('Assets_and_images/PNG/Retina/Ships/crossbones.png')
         self.image =  pygame.transform.flip(self.image, 1, 0)
-        self.image = pygame.transform.rotozoom(self.image, 0, 1)
+        self.image = pygame.transform.rotozoom(self.image, 0, 0.4)
         self.rect = self.image.get_rect()
         self.theta = 0 # angle to player in radians
-        self.speed = randint(1,3)  # speed to follow player
+        self.speed = randint(1, 2)  # speed to follow player
         self.player = player
     
     def get_theta(self):

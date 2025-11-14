@@ -38,19 +38,19 @@ class Player(pygame.sprite.Sprite):
             # we got a keydown event
             # check and see if it was W key
             if event.key == pygame.K_w:
-                self.vy += -0.7
+                self.vy += -1
                 # player goes up
             # check and see if it was a S key
             if event.key == pygame.K_s:
                 # player goes down
-                self.vy  += 0.7
+                self.vy  += 1
             # move left and right
             if event.key == pygame.K_a:
                 # player goes back
-                self.vx += -0.7
+                self.vx += -1
             if event.key == pygame.K_d:
                 # player goes forward
-                self.vx += 0.7
+                self.vx += 1
             if event.key == pygame.K_t:
                 # player goes forward
                 self.vx *= 0.3

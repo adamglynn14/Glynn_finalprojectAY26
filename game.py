@@ -4,6 +4,7 @@ from util_bg import make_background
 from util_param import *
 from player import Player
 from Potential_h import Pot_Text
+from enemyship import Enemyship
 
 # pygame setup
 pygame.init()
@@ -15,8 +16,17 @@ running = True
 
 background = make_background()
 
+#make an enemy group
+enemy_group = pygame.sprite.Group()
+
 #make a player 
 player = Player()
+
+#make enemy ships
+num_enemies = 2
+for i in range(num_enemies):
+    enemy_group.add(Enemyship(player))
+
 
 #make the title
 title = Pot_Text()
@@ -41,7 +51,7 @@ while running:
 
     #update the things
     player.update()
-
+    enemy_group.update()
 
     #blit the background to our screen
     screen.blit(background,(0,0))
@@ -54,6 +64,7 @@ while running:
     # RENDER YOUR GAME HERE
     # draw player
     player.draw(screen)
+    enemy_group.draw(screen)
 
 
     # flip() the display to put your work on screen

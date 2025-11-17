@@ -61,7 +61,6 @@ while running:
     title.update()
     title.draw(screen)
 
-    # RENDER YOUR GAME HERE
     # draw player
     player.draw(screen)
     enemy_group.draw(screen)

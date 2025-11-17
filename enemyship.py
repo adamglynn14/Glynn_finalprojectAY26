@@ -29,14 +29,14 @@ class Enemyship(pygame.sprite.Sprite):
 
 
     def update(self):
-        # update our theta
+        # update the theta
         self.get_theta()
 
-        # update the position of our fish
+        # update the position of the ship
         self.x += self.vx
         self.y += self.vy
 
-        # update the speed of our fish
+        # update the speed of the ship
         self.vx = self.speed * math.cos(self.theta)
         self.vy = self.speed * math.sin(self.theta)
 

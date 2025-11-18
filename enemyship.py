@@ -12,7 +12,7 @@ class Enemyship(pygame.sprite.Sprite):
         self.x = WIDTH+100
         self.y = randint(0,HEIGHT)
         self.base1_image = pygame.image.load('Assets_and_images/PNG/Retina/Ships/crossbones.png')
-        self.image = pygame.transform.rotozoom(self.base1_image, 0, 0.4) #makes the base image the smaller version
+        self.image = pygame.transform.rotozoom(self.base1_image, 90, 0.4) #makes the base image the smaller version
         self.rect = self.image.get_rect()
         self.theta = 0 # angle to player in radians
         self.speed = randint(1, 2)  # speed to follow player
@@ -46,9 +46,9 @@ class Enemyship(pygame.sprite.Sprite):
 
     def draw(self, screen):
         #if self.theta>math.pi or self.theta <-math.pi:
-           # self.image1 = pygame.transform.flip(self.image,0,1)
+            #self.image1 = pygame.transform.flip(self.image,0,1)
         #else:
-         #   self.image1 = self.image
+           #self.image1 = self.image
 
         # blit our ship to the screen
         self.image2 = pygame.transform.rotozoom(self.image, math.degrees(-self.theta),1)

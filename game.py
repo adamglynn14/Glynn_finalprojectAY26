@@ -63,7 +63,8 @@ while running:
 
     # draw player
     player.draw(screen)
-    enemy_group.draw(screen)
+    for e in enemy_group:
+        e.draw(screen)
 
 
     # flip() the display to put your work on screen

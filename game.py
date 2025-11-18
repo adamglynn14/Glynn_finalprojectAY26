@@ -20,12 +20,14 @@ background = make_background()
 enemy_group = pygame.sprite.Group()
 
 #make a player 
-player = Player()
+player = Player(enemy_group)
 
 #make enemy ships
 num_enemies = 2
 for i in range(num_enemies):
     enemy_group.add(Enemyship(player))
+    if num_enemies <2:
+        enemy_group.add(Enemyship(player))
 
 
 #make the title
@@ -59,6 +61,7 @@ while running:
 
     #draw the title 
     title.update()
+    title.update_score(player.score)
     title.draw(screen)
 
     # draw player

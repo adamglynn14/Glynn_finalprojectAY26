@@ -32,4 +32,4 @@ class Pot_Text():
 
     def draw(self, screen):
         screen.blit(self.title_surface, self.title_rect)
-        screen.blit(self.score_surface, (WIDTH - 50, 30))
+        screen.blit(self.score_surface, (WIDTH - 100, 30))

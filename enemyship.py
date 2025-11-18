@@ -2,20 +2,20 @@ import pygame
 import pygame
 from util_param import *
 import math
-from random import randint
+import random
 
 class Enemyship(pygame.sprite.Sprite):
     def __init__(self, player):
         pygame.sprite.Sprite.__init__(self)
-        self.vx = randint(-4,-1)
-        self.vy = randint(-2,2)
+        self.vx = random.uniform(-4,-1)
+        self.vy = random.uniform(-2,2)
         self.x = WIDTH+100
-        self.y = randint(0,HEIGHT)
+        self.y = random.uniform(0,HEIGHT)
         self.base1_image = pygame.image.load('Assets_and_images/PNG/Retina/Ships/crossbones.png')
         self.image = pygame.transform.rotozoom(self.base1_image, 90, 0.4) #makes the base image the smaller version
         self.rect = self.image.get_rect()
         self.theta = 0 # angle to player in radians
-        self.speed = randint(1, 2)  # speed to follow player
+        self.speed = random.uniform(1, 2)  # speed to follow player
         self.player = player
     
     def get_theta(self):

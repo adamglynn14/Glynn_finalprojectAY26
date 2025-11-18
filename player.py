@@ -1,20 +1,22 @@
 import pygame
 from util_param import *
 import math
-import random
+from random import randint
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self, x = 50, y= HEIGHT//5):
+    def __init__(self, enemy_group, x = 50, y= HEIGHT//5):
         pygame.sprite.Sprite.__init__(self) # init the sprite class
         self.x = x
         self.y = y
         self.vx = 0
         self.vy = 0
+        self.enemy_group = enemy_group
         self.base1_image = pygame.image.load('Assets_and_images/PNG/Retina/Ships/bluehorseship.png')
         # do any resize here
         self.base_image = pygame.transform.rotozoom(self.base1_image, 0, 0.4) 
         self.rect = self.base_image.get_rect()
         self.theta=0 # rad
+        self.score = 0
 
     def get_theta(self):
         # get our theta based on our vx and vy
@@ -29,6 +31,18 @@ class Player(pygame.sprite.Sprite):
 
         #update the theta value
         self.get_theta()
+
+        # check for a ship collision
+        colliding_enemy = pygame.sprite.spritecollide(self, self.enemy_group,0)
+        # check for a collision
+        if colliding_enemy:
+            #self.hit_sound.play()
+            self.score -= 50
+            # move the collided to right of screen
+            for f in colliding_enemy:
+                f.x = WIDTH + 100
+                f.y = randint(0,HEIGHT)
+    
     
 
 

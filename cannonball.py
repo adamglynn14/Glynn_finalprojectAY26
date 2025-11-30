@@ -1,18 +1,19 @@
-#cannonball file
 import pygame
-from player import Player
-from util_bg import make_background
 from util_param import *
+import math
 
-class Cball(Player):
-    #subclass of player that deals will the firing of the cannonball
-    def __init__(self, x, y):
+class Cannonball(pygame.sprite.Sprite):
+        def __init__(self, player):
+            super().__init__()
+            self.cballimage = pygame.image.load("Assets_and_images/PNG/Retina/Ship parts/cannonBall.png")
+            self.cballimage = pygame.transform.rotozoom(self.cballimage, 0, 0.4)
+            self.rect = self.image.get_rect(center=(x, y))
+            self.speed = 2
+            self.direction_vector = 
+            self.velocity = direction_vector.normalize() * self.speed # Normalize for consistent speed
         
-        self.cball_x = x
-        self.cball_y = y
-        self.cball_vx = 0
-        self.cball_vy = 0
+        def update(self):
+            self.rect.x += self.velocity.x
+            self.rect.y += self.velocity.y
 
-    
-        self.cball_surface = pygame.image.load("Assets_and_images/PNG/Retina/Ship parts/cannonBall.png")
-        self.cball_surface = pygame.transform.rotozoom(self.cball_surface, 0, 0.4)
+

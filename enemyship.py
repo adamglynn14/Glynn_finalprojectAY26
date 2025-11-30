@@ -45,10 +45,6 @@ class Enemyship(pygame.sprite.Sprite):
         self.get_theta()
 
     def draw(self, screen):
-        #if self.theta>math.pi or self.theta <-math.pi:
-            #self.image1 = pygame.transform.flip(self.image,0,1)
-        #else:
-           #self.image1 = self.image
 
         # blit our ship to the screen
         self.image2 = pygame.transform.rotozoom(self.image, math.degrees(-self.theta),1)

@@ -6,6 +6,8 @@ from player import Player
 from Potential_h import Pot_Text
 from enemyship import Enemyship
 
+
+
 # pygame setup
 pygame.init()
 
@@ -21,6 +23,7 @@ enemy_group = pygame.sprite.Group()
 
 #make a player 
 player = Player(enemy_group)
+
 
 #make enemy ships
 num_enemies = 2
@@ -54,6 +57,7 @@ while running:
     #update the things
     player.update()
     enemy_group.update()
+
 
     #blit the background to our screen
     screen.blit(background,(0,0))

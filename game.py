@@ -7,7 +7,6 @@ from Potential_h import Pot_Text
 from enemyship import Enemyship
 
 
-
 # pygame setup
 pygame.init()
 
@@ -23,7 +22,6 @@ enemy_group = pygame.sprite.Group()
 
 #make a player 
 player = Player(enemy_group)
-
 
 #make enemy ships
 num_enemies = 2
@@ -53,11 +51,12 @@ while running:
             running = False
         # pass the event to our player
         player.check_event(event)
+        
+    
 
     #update the things
     player.update()
     enemy_group.update()
-
 
     #blit the background to our screen
     screen.blit(background,(0,0))
@@ -79,4 +78,4 @@ while running:
 
     clock.tick(60)  # limits FPS to 60
 
-pygame.quit()
+pygame.quit

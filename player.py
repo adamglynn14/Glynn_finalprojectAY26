@@ -3,6 +3,7 @@ from util_param import *
 import math
 from random import randint
 
+
 class Player(pygame.sprite.Sprite):
     def __init__(self, enemy_group, x = 50, y= HEIGHT//5):
         super().__init__()
@@ -49,8 +50,6 @@ class Player(pygame.sprite.Sprite):
                 f.x = WIDTH + 100
                 f.y = randint(0,HEIGHT)
 
-
-
     def check_event(self, event):
         # pass an event and check for key moves
         if event.type == pygame.KEYDOWN:
@@ -76,6 +75,7 @@ class Player(pygame.sprite.Sprite):
             if event.key == pygame.K_t:
                 # player goes forward
                 self.vy *= 0.3
+
 
 
     def draw(self, screen):

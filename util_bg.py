@@ -52,7 +52,7 @@ def make_background():
     scaled_wavysand = pygame.transform.rotozoom(wavysand, 0, 0.2)
 
     ywavy = HEIGHT - 100
-    for x in range(150,WIDTH - 200,sand_square_tile_width):
+    for x in range(150,WIDTH - 250,sand_square_tile_width):
         #blit the sand tile
         background.blit(scaled_wavysand,(x,ywavy))
     
@@ -60,7 +60,7 @@ def make_background():
     scaled2_wavysand = pygame.transform.rotozoom(wavysand, 180, 0.2)
 
     ywavy = HEIGHT - 200
-    for x in range(150,WIDTH - 200,sand_square_tile_width):
+    for x in range(150,WIDTH - 250,sand_square_tile_width):
         #blit the sand tile
         background.blit(scaled2_wavysand,(x,ywavy))
 

@@ -31,20 +31,24 @@ class Player(pygame.sprite.Sprite):
         self.theta = math.atan2(self.vx,self.vy)
     
     def check_boundaries(self):
-        # make our ship remains in boundaries
-        x_bounds = (0,WIDTH)
-        y_bounds = (0,HEIGHT)
-
-        #if self.rect.bottomright.x not in x_bounds:
-            ##if self.y not in y_bounds:
-           # pygame.sprite.Sprite.kill(self)
-
-
-        # check topright of our ship
-        if self.rect.top<0:
+        # check to make sure the ship stays in the boundry
+        if self.rect.left < 0:
+            self.rect.left = 0
+            self.vx = -self.vx
+            self.vy = -self.vy
+        if self.rect.right > WIDTH // 1.008:
+            self.rect.right = WIDTH // 1.008
+            self.vx = -self.vx
+            self.vy = -self.vy
+        if self.rect.top < 0:
             self.base_image = self.damagedship
             self.vx = -self.vx
             self.vy = -self.vy
+        if self.rect.top > HEIGHT//1.08:
+            self.rect.top = HEIGHT//1.08
+            self.vx = -self.vx
+            self.vy = -self.vy
+
 
         # check to make sure it only stays on water
         front_color = self.background.get_at(self.rect.bottomright)

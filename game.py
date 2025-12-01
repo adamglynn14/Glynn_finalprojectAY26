@@ -4,9 +4,10 @@ from util_bg import make_background
 from util_param import *
 from player import Player
 from Potential_h import Pot_Text
-from enemyship import Enemyship
+from enemyship import *
 from loot import Loot
 from random import randint
+from time import sleep
 #from gameover import Over_Text
 
 # pygame setup
@@ -36,8 +37,7 @@ player = Player(loot_group, enemy_group, background)
 num_enemies = 3
 for i in range(num_enemies):
     enemy_group.add(Enemyship(player))
-    if num_enemies <3:
-        enemy_group.add(Enemyship(player))
+
 
 
 #make the title
@@ -61,7 +61,7 @@ while running:
         # pass the event to our player
         player.check_event(event)
         
-    
+   
 
     #update the things
     player.update()

@@ -26,7 +26,8 @@ class Enemyship(pygame.sprite.Sprite):
         self.theta = 0 # angle to player in radians
         self.speed = random.uniform(1, 2)  # speed to follow player
         self.player = player
-    
+
+
     def get_theta(self):
         # calculate the theta in radians to the player
         delta_x = self.player.x - self.x
@@ -52,6 +53,7 @@ class Enemyship(pygame.sprite.Sprite):
     
         # update the theta
         self.get_theta()
+
 
     def draw(self, screen):
 

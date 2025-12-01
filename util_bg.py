@@ -47,11 +47,12 @@ def make_background():
    
 
     #make a channel 
+    #make a bottom part
     wavysand_location = "Assets_and_images/PNG/Retina/Tiles/wavysand.png"
     wavysand = pygame.image.load(wavysand_location)
     scaled_wavysand = pygame.transform.rotozoom(wavysand, 0, 0.2)
 
-    ywavy = HEIGHT - 100
+    ywavy = HEIGHT - 130
     for x in range(150,WIDTH - 250,sand_square_tile_width):
         #blit the sand tile
         background.blit(scaled_wavysand,(x,ywavy))
@@ -59,7 +60,7 @@ def make_background():
     #toppart of channel
     scaled2_wavysand = pygame.transform.rotozoom(wavysand, 180, 0.2)
 
-    ywavy = HEIGHT - 200
+    ywavy = HEIGHT - 230
     for x in range(150,WIDTH - 250,sand_square_tile_width):
         #blit the sand tile
         background.blit(scaled2_wavysand,(x,ywavy))

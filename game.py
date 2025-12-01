@@ -71,15 +71,12 @@ while running:
     #blit the background to our screen
     screen.blit(background,(0,0))
 
-
     #draw the title 
     title.update()
     title.update_score(player.score)
     title.draw(screen)
 
-    #draw game over
-    #gameover.update()
-    #gameover.draw()
+
 
     # draw player
     player.draw(screen)

@@ -32,20 +32,25 @@ class Player(pygame.sprite.Sprite):
     
     def check_boundaries(self):
         # make our ship remains in boundaries
-        #if self.x <0:
+        x_bounds = (0,WIDTH)
+        y_bounds = (0,HEIGHT)
 
+        #if self.rect.bottomright.x not in x_bounds:
+            ##if self.y not in y_bounds:
+           # pygame.sprite.Sprite.kill(self)
 
 
         # check topright of our ship
         if self.rect.top<0:
-            self.vy = 0
             self.base_image = self.damagedship
+            self.vx = -self.vx
+            self.vy = -self.vy
 
         # check to make sure it only stays on water
         front_color = self.background.get_at(self.rect.bottomright)
         if front_color[2]<150: # to see if the ship is not touching blue
-            self.vy = -self.vy * 0.6
-            self.vx = -self.vx * 0.6
+            self.vy = -self.vy -0.5
+            self.vx = -self.vx -0.5 
             self.base_image = self.damagedship
 
 
@@ -68,20 +73,18 @@ class Player(pygame.sprite.Sprite):
         if colliding_loot:
             #play a sound
             self.loot_sound.play()
-            self.score += 20
+            self.score += randint(1,20)
             #randomize a new location
             for l in colliding_loot:
                 l.x = randint(0,WIDTH)
                 l.y = randint(20,HEIGHT)
-
-            
 
         # check for a ship collision
         colliding_enemy = pygame.sprite.spritecollide(self, self.enemy_group,0)
         # check for a collision with an enemy ship
         if colliding_enemy:
             self.ship_sound.play()
-            self.score -= 50
+            self.score -= randint(30,70)
             # move the collided to right of screen to avoid constant collison
             for f in colliding_enemy:
                 f.x = WIDTH + 100

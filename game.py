@@ -50,7 +50,7 @@ title = Pot_Text()
 
 
 ################################################################
-
+screen_num = 0
 
 while running:
     # poll for events
@@ -61,6 +61,12 @@ while running:
         # pass the event to our player
         player.check_event(event)
         
+        # check for the p button to take a screenshot
+        if event.type == pygame.KEYDOWN:
+            if event.key ==pygame.K_p:
+                pygame.image.save(screen,f"screenshot_{screen_num}.png")
+                screen_num +=1
+                print("Took a screenshot!")
    
 
     #update the things

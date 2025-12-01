@@ -5,7 +5,7 @@ from random import randint
 #from gameover import Over_Text
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self, enemy_group, background, x = 50, y= HEIGHT//5):
+    def __init__(self, loot_group, enemy_group, background, x = 50, y= HEIGHT//5):
         pygame.sprite.Sprite.__init__(self) # init the sprite class
         self.x = x
         self.y = y
@@ -13,6 +13,7 @@ class Player(pygame.sprite.Sprite):
         self.vy = 0
         #self.loot_group = loot_group
         self.enemy_group = enemy_group
+        self.loot_group = loot_group
         self.damagedship = pygame.transform.rotozoom(pygame.image.load("Assets_and_images/PNG/Retina/Ships/bleuhorsegone.png"),0,0.4)
         self.base1_image = pygame.image.load('Assets_and_images/PNG/Retina/Ships/bluehorseship.png')
         # do any resize here

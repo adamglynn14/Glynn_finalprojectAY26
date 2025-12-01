@@ -5,8 +5,8 @@ from util_param import *
 from player import Player
 from Potential_h import Pot_Text
 from enemyship import Enemyship
-#from loot import Loot
-#from random import randint
+from loot import Loot
+from random import randint
 #from gameover import Over_Text
 
 # pygame setup
@@ -21,15 +21,16 @@ background = make_background()
 
 #make an enemy group and a loot group
 enemy_group = pygame.sprite.Group()
-#loot_group = pygame.sprite.Group()
+loot_group = pygame.sprite.Group()
 
 #make some loot
-#for i in range (4):
+for i in range(4):
     #make loot and add to the group
-    #loot_group.add(Loot(randint(0, WIDTH), randint(20, HEIGHT)))
+    loot_group.add(Loot(randint(0,WIDTH), randint(20,HEIGHT)))
 
 #make a player 
-player = Player( enemy_group, background)
+player = Player(loot_group, enemy_group, background)
+
 
 #make enemy ships
 num_enemies = 3
@@ -84,9 +85,9 @@ while running:
     #draw enemy ships
     for e in enemy_group:
         e.draw(screen)
-    
     #draw the loot
-    #loot_group.draw(screen)
+    for l in loot_group:
+        l.draw(screen)
 
 
     # flip() the display to put your work on screen

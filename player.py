@@ -11,7 +11,6 @@ class Player(pygame.sprite.Sprite):
         self.y = y
         self.vx = 0
         self.vy = 0
-        #self.loot_group = loot_group
         self.enemy_group = enemy_group
         self.loot_group = loot_group
         self.damagedship = pygame.transform.rotozoom(pygame.image.load("Assets_and_images/PNG/Retina/Ships/bleuhorsegone.png"),0,0.4)
@@ -22,6 +21,9 @@ class Player(pygame.sprite.Sprite):
         self.theta=0 # rad
         self.score = 0
         self.background = background #lets the ship stop if it hits sand
+        self.loot_sound = pygame.mixer.Sound("Assets_and_images/Audio/impactWood_light_003.ogg")
+        self.ship_sound = pygame.mixer.Sound("Assets_and_images/Audio/impactMetal_light_000.ogg")
+
 
 
     def get_theta(self):
@@ -65,7 +67,7 @@ class Player(pygame.sprite.Sprite):
         colliding_loot = pygame.sprite.spritecollide(self,self.loot_group,0)
         if colliding_loot:
             #play a sound
-            #self.score_sound.play
+            self.loot_sound.play()
             self.score += 20
             #randomize a new location
             for l in colliding_loot:
@@ -78,7 +80,7 @@ class Player(pygame.sprite.Sprite):
         colliding_enemy = pygame.sprite.spritecollide(self, self.enemy_group,0)
         # check for a collision with an enemy ship
         if colliding_enemy:
-            #self.hit_sound.play()
+            self.ship_sound.play()
             self.score -= 50
             # move the collided to right of screen to avoid constant collison
             for f in colliding_enemy:

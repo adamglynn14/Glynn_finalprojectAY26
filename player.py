@@ -61,6 +61,19 @@ class Player(pygame.sprite.Sprite):
         #update the theta value
         self.get_theta()
 
+        #check for loot collisions
+        colliding_loot = pygame.sprite.spritecollide(self,self.loot_group,0)
+        if colliding_loot:
+            #play a sound
+            #self.score_sound.play
+            self.score += 20
+            #randomize a new location
+            for l in colliding_loot:
+                l.x = randint(0,WIDTH)
+                l.y = randint(20,HEIGHT)
+
+            
+
         # check for a ship collision
         colliding_enemy = pygame.sprite.spritecollide(self, self.enemy_group,0)
         # check for a collision with an enemy ship

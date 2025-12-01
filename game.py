@@ -24,7 +24,7 @@ enemy_group = pygame.sprite.Group()
 loot_group = pygame.sprite.Group()
 
 #make some loot
-for i in range(4):
+for i in range(15):
     #make loot and add to the group
     loot_group.add(Loot(randint(0,WIDTH), randint(20,HEIGHT)))
 
@@ -66,6 +66,7 @@ while running:
     #update the things
     player.update()
     enemy_group.update()
+    loot_group.update()
 
     #blit the background to our screen
     screen.blit(background,(0,0))

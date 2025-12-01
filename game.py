@@ -21,7 +21,7 @@ background = make_background()
 enemy_group = pygame.sprite.Group()
 
 #make a player 
-player = Player(enemy_group)
+player = Player(enemy_group, background)
 
 #make enemy ships
 num_enemies = 2
@@ -69,6 +69,7 @@ while running:
 
     # draw player
     player.draw(screen)
+    #draw enemy ships
     for e in enemy_group:
         e.draw(screen)
 

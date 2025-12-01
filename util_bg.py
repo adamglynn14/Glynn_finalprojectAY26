@@ -26,10 +26,10 @@ def make_background():
             background.blit(water_tile, (x,y))
 
     #place sand on the bottom row
-    y_sands = HEIGHT - sand_square_tile_height
-    for x in range(0,WIDTH,sand_square_tile_width):
+    #y_sands = HEIGHT - sand_square_tile_height
+    #for x in range(0,WIDTH,sand_square_tile_width):
         #blit the sand tile
-        background.blit(scaled_sand_square_tile,(x,y_sands))
+        #background.blit(scaled_sand_square_tile,(x,y_sands))
 
     #place sand on the top row
     for x in range(0,WIDTH,sand_square_tile_width):
@@ -37,10 +37,10 @@ def make_background():
         background.blit(scaled_sand_square_tile,(x,0))
 
     #place sand in the edge row
-    x_sand = WIDTH - sand_square_tile_width
-    for y in range(0, HEIGHT, sand_square_tile_height):
+    #x_sand = WIDTH - sand_square_tile_width
+    #for y in range(0, HEIGHT, sand_square_tile_height):
         #blit the sand background
-        background.blit(scaled_sand_square_tile, (x_sand, y))
+        #background.blit(scaled_sand_square_tile, (x_sand, y))
 
     #make a circle of in the middle with grass on the side
 

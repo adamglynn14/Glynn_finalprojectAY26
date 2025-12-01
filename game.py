@@ -5,7 +5,9 @@ from util_param import *
 from player import Player
 from Potential_h import Pot_Text
 from enemyship import Enemyship
-
+#from loot import Loot
+#from random import randint
+#from gameover import Over_Text
 
 # pygame setup
 pygame.init()
@@ -17,23 +19,29 @@ running = True
 
 background = make_background()
 
-#make an enemy group
+#make an enemy group and a loot group
 enemy_group = pygame.sprite.Group()
+#loot_group = pygame.sprite.Group()
+
+#make some loot
+#for i in range (4):
+    #make loot and add to the group
+    #loot_group.add(Loot(randint(0, WIDTH), randint(20, HEIGHT)))
 
 #make a player 
-player = Player(enemy_group, background)
+player = Player( enemy_group, background)
 
 #make enemy ships
-num_enemies = 2
+num_enemies = 3
 for i in range(num_enemies):
     enemy_group.add(Enemyship(player))
-    if num_enemies <2:
+    if num_enemies <3:
         enemy_group.add(Enemyship(player))
 
 
 #make the title
 title = Pot_Text()
-
+#agameover = Over_Text()
 ################# TESTING ZONE ###################################
 
 
@@ -67,11 +75,18 @@ while running:
     title.update_score(player.score)
     title.draw(screen)
 
+    #draw game over
+    #gameover.update()
+    #gameover.draw()
+
     # draw player
     player.draw(screen)
     #draw enemy ships
     for e in enemy_group:
         e.draw(screen)
+    
+    #draw the loot
+    #loot_group.draw(screen)
 
 
     # flip() the display to put your work on screen

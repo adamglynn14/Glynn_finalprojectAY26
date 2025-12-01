@@ -1,26 +1,18 @@
 import pygame
 from util_param import *
 
-class Pot_Text():
+class Over_Text():
     def __init__(self):
         # load font
         self.title_font = pygame.font.Font('Assets_and_images/fonts/28-days-later/28 Days Later.ttf', 100)
 
-        self.black = (0, 0, 0)
+        self.red = (277, 0, 0)
         # make a title surface
-        self.title_surface = self.title_font.render('Potential Happiness', 1, self.black)
+        self.title_surface = self.title_font.render('Potential Happiness', 1, self.red)
         self.title_rect = self.title_surface.get_rect()
-        self.title_rect.center = (WIDTH//2, HEIGHT//5)
+        self.title_rect.center = (WIDTH//2, HEIGHT//2)
         self.birth_time = pygame.time.get_ticks()
         self.death_time = 2500
-
-        # make a score font / surface
-        self.score_font = pygame.font.Font('Assets_and_images/fonts/28-days-later/28 Days Later.ttf', 40)
-        self.black = (0,0,0)
-        self.score_surface = self.score_font.render('0',1,self.black)
-
-    def update_score(self, score):
-        self.score_surface = self.score_font.render(f"{score}",1,self.black)
 
     def update(self):
         # adjust the alpha based on the age of our text
@@ -33,4 +25,3 @@ class Pot_Text():
 
     def draw(self, screen):
         screen.blit(self.title_surface, self.title_rect)
-        screen.blit(self.score_surface, (WIDTH - 100, 30))

@@ -2,7 +2,7 @@ import pygame
 from util_param import *
 import math
 from random import randint
-
+#from gameover import Over_Text
 
 class Player(pygame.sprite.Sprite):
     def __init__(self, enemy_group, background, x = 50, y= HEIGHT//5):
@@ -11,7 +11,9 @@ class Player(pygame.sprite.Sprite):
         self.y = y
         self.vx = 0
         self.vy = 0
+        #self.loot_group = loot_group
         self.enemy_group = enemy_group
+        self.damagedship = pygame.transform.rotozoom(pygame.image.load("Assets_and_images/PNG/Retina/Ships/bleuhorsegone.png"),0,0.4)
         self.base1_image = pygame.image.load('Assets_and_images/PNG/Retina/Ships/bluehorseship.png')
         # do any resize here
         self.base_image = pygame.transform.rotozoom(self.base1_image, 0, 0.4) 
@@ -27,20 +29,21 @@ class Player(pygame.sprite.Sprite):
     
     def check_boundaries(self):
         # make our ship remains in boundaries
-        y_bounds = (0,HEIGHT)
-        x_bounds = (0,WIDTH)
+        #if self.x <0:
+
+
 
         # check topright of our ship
-        if self.rect.top<0 or self.rect.right>WIDTH:
+        if self.rect.top<0:
             self.vy = 0
-            self.base_image = pygame.transform.rotozoom(pygame.image.load("Assets_and_images/PNG/Retina/Ships/bleuhorsegone.png"),0,0.4)
+            self.base_image = self.damagedship
 
         # check to make sure it only stays on water
         front_color = self.background.get_at(self.rect.bottomright)
-        if front_color[2]<200: # if not blue
-            self.vy=0
-            self.vx =0
-            self.rect.bottom = self.rect.bottom -10
+        if front_color[2]<150: # to see if the ship is not touching blue
+            self.vy = -self.vy * 0.6
+            self.vx = -self.vx * 0.6
+            self.base_image = self.damagedship
 
 
     def update(self):

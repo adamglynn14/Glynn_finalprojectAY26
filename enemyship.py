@@ -3,15 +3,22 @@ import pygame
 from util_param import *
 import math
 import random
+from random import choice
 
 class Enemyship(pygame.sprite.Sprite):
     def __init__(self, player):
         pygame.sprite.Sprite.__init__(self)
+        self.assets = [
+            "Assets_and_images/PNG/Retina/Ships/crossbones.png",
+            "Assets_and_images/PNG/Retina/Ships/ship (6).png",
+            "Assets_and_images/PNG/Retina/Ships/ship (22).png"
+        ]
+        self.fp = choice(self.assets)
         self.vx = random.uniform(-4,-1)
         self.vy = random.uniform(-2,2)
         self.x = WIDTH+100
         self.y = random.uniform(0,HEIGHT)
-        self.base1_image = pygame.image.load('Assets_and_images/PNG/Retina/Ships/crossbones.png')
+        self.base1_image = pygame.image.load(self.fp)
         self.image = pygame.transform.rotozoom(self.base1_image, 90, 0.4) #makes the base image the smaller version
         self.rect = self.image.get_rect()
         self.theta = 0 # angle to player in radians

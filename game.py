@@ -20,6 +20,9 @@ running = True
 
 background = make_background()
 
+#sets up the timer
+start_time = pygame.time.get_ticks() # Gets the time in milliseconds
+
 #make an enemy group and a loot group
 enemy_group = pygame.sprite.Group()
 loot_group = pygame.sprite.Group()
@@ -42,10 +45,7 @@ for i in range(num_enemies):
 
 #make the title
 title = Pot_Text()
-#agameover = Over_Text()
 ################# TESTING ZONE ###################################
-
-
 
 
 
@@ -67,7 +67,17 @@ while running:
                 pygame.image.save(screen,f"screenshot_{screen_num}.png")
                 screen_num +=1
                 print("Took a screenshot!")
-   
+    #sets up the timer
+    current_time = pygame.time.get_ticks()
+    elapsed_time_ms = current_time - start_time
+    elapsed_seconds = elapsed_time_ms // 1000
+    #make a timer font / surface
+    timer_font = pygame.font.Font('Assets_and_images/fonts/28-days-later/28 Days Later.ttf', 30)
+    #formats the timer 
+    minutes = elapsed_seconds // 60
+    seconds = elapsed_seconds % 60
+    timer_text = f"{minutes:02d}:{seconds:02d}"
+    timer_surface = timer_font.render(timer_text, 1, (0,0,0)) #black color
 
     #update the things
     player.update()
@@ -81,6 +91,9 @@ while running:
     title.update()
     title.update_score(player.score)
     title.draw(screen)
+    #blit the timer to the screen
+    screen.blit(timer_surface, (10, 10))
+
 
 
 

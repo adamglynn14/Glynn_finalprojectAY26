@@ -2,7 +2,7 @@ import pygame
 from util_param import *
 
 class Pot_Text():
-    def __init__(self):
+    def __init__(self,):
         # load font
         self.title_font = pygame.font.Font('Assets_and_images/fonts/28-days-later/28 Days Later.ttf', 100)
 
@@ -19,6 +19,7 @@ class Pot_Text():
         self.black = (0,0,0)
         self.score_surface = self.score_font.render('0',1,self.black)
 
+
     def update_score(self, score):
         self.score_surface = self.score_font.render(f"{score}",1,self.black)
 
@@ -28,7 +29,6 @@ class Pot_Text():
         current_age_percent = current_age/self.death_time
         # set the correct alpha
         self.title_surface.set_alpha(255 - current_age_percent * 255)
-        
 
 
     def draw(self, screen):

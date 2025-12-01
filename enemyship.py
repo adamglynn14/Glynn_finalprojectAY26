@@ -11,7 +11,9 @@ class Enemyship(pygame.sprite.Sprite):
         self.assets = [
             "Assets_and_images/PNG/Retina/Ships/crossbones.png",
             "Assets_and_images/PNG/Retina/Ships/ship (6).png",
-            "Assets_and_images/PNG/Retina/Ships/ship (22).png"
+            "Assets_and_images/PNG/Retina/Ships/ship (22).png",
+            "Assets_and_images/PNG/Retina/Ships/ship (4).png",
+            "Assets_and_images/PNG/Retina/Ships/ship (3).png"
         ]
         self.fp = choice(self.assets)
         self.vx = random.uniform(-4,-1)

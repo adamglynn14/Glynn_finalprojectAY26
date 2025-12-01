@@ -15,4 +15,4 @@ You are an experienced traveller guiding your ship through the 7 seas. A hurrica
 4. Use the ```d``` key to move right
 5. Use the ```t``` key to drop anchor and slow your speed significantly
 6. Survive as long as possible, once your score is zero your time is up
-7. If your score ever reaches zero, the game is over
+

@@ -3,11 +3,13 @@ import pygame
 from util_bg import make_background
 from util_param import *
 from player import Player
-from Potential_h import Pot_Text
+from Potential_h import *
 from enemyship import *
 from loot import Loot
 from random import randint
 from time import sleep
+from button import Button
+from screens import *
 #from gameover import Over_Text
 
 # pygame setup
@@ -19,6 +21,7 @@ clock = pygame.time.Clock()
 running = True
 
 background = make_background()
+
 
 #sets up the timer
 start_time = pygame.time.get_ticks() # Gets the time in milliseconds
@@ -45,6 +48,7 @@ for i in range(num_enemies):
 
 #make the title
 title = Pot_Text()
+screens = Screen()
 ################# TESTING ZONE ###################################
 
 
@@ -79,6 +83,9 @@ while running:
     timer_text = f"{minutes:02d}:{seconds:02d}"
     timer_surface = timer_font.render(timer_text, 1, (0,0,0)) #black color
 
+    if player.score < 0:
+        running = 0
+
     #update the things
     player.update()
     enemy_group.update()
@@ -93,8 +100,7 @@ while running:
     title.draw(screen)
     #blit the timer to the screen
     screen.blit(timer_surface, (10, 10))
-
-
+    
 
 
     # draw player
@@ -105,7 +111,7 @@ while running:
     #draw the loot
     for l in loot_group:
         l.draw(screen)
-
+    
 
     # flip() the display to put your work on screen
     pygame.display.flip()

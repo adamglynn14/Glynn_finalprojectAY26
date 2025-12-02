@@ -10,7 +10,6 @@ from random import randint
 from time import sleep
 from button import Button
 from screens import *
-#from gameover import Over_Text
 
 # pygame setup
 pygame.init()

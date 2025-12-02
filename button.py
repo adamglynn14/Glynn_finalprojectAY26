@@ -1,33 +1,29 @@
 import pygame
 
 class Button:
-    def __init__(self, x, y, width, height, fg, bg, words, size):
-        self.font = pygame.font.Font('Assets_and_images/fonts/28-days-later/28 Days Later.ttf', 20)
-        self.words = words
-        self.x = x
-        self.y = y 
-        self.width = 40
-        self.height = 20
-        self.fg = fg
-        self.bg = bg
-        self.size = size
+    def __init__(self, image, pos, text_input, font, color):
+        self.image = image
+        self.x_pos = pos[0]
+        self.y_pos = pos[1]
+        self.font = font
+        self.color = color
+        self.text_input = text_input
+        self.text = self.font.render(self.text_input, True, self.color)
+        if self.image is None:
+            self.image = self.text
+        self.rect = self.image.get_rect(center=(self.x_pos, self.y_pos))
+        self.text_rect = self.text.get_rect(center=(self.x_pos, self.y_pos))
 
-        self.image = pygame.Surface((self.width, self.height))
-        self.image.fill(self.bg)
-        self.rect = self.image.get_rect()
+    def update(self, screen):
+        if self.image is not None:
+            screen.blit(self.image, self.rect)
+        screen.blit(self.text, self.text_rect)
 
-        self.rect.x = self.x
-        self.rect.y = self.y
+    def check_for_input(self, position):
+        if position[0] in range(self.rect.left, self.rect.right) and position[1] in range(self.rect.top, self.rect.bottom):
+            return True
+        return False
 
-        self.text = self.font.render(self.words, 1, self.fg)
-        self.text_rect = self.text.get_rect(center=(self.width/2, self.height/2))
-        self.image.blit(self.text, self.text_rect)
-
-    def is_pressed(self, pos, pressed):
-        if self.rect.collidepoint(pos):
-            if pressed[0]:
-                return 1
-            return 0
-        return 0
+    
     
     
